@@ -1,8 +1,6 @@
 import { projects, experience, courses } from '../data/portfolio'
-import { useWindows } from '../context/WindowContext'
 
 export function ProjectsApp() {
-  const { openApp } = useWindows()
 
   return (
     <div className="app-content projects-app">
@@ -52,19 +50,9 @@ export function ProjectsApp() {
                   </span>
                 ))}
               </div>
-              {'openApp' in project && project.openApp ? (
-                <button
-                  type="button"
-                  className="xp-link-btn"
-                  onClick={() => openApp(project.openApp!)}
-                >
-                  View PDF →
-                </button>
-              ) : (
-                <a href={project.link} className="xp-link" target="_blank" rel="noreferrer">
-                  View Project →
-                </a>
-              )}
+              <a href={project.link} className="xp-link" target="_blank" rel="noreferrer">
+                View Project →
+              </a>
             </div>
           </div>
         ))}
